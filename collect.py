@@ -20,6 +20,11 @@ def enter():
 
     return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
 
+@app.route('/get', methods=['GET'])
+def get_data():
+    with open('data.txt', 'r') as file:
+        data = file.read()
+    return data
 
 if __name__ == '__main__':
     app.run(debug = True)
